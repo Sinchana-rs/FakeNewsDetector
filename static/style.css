@@ -1,0 +1,290 @@
+/* ========================
+   GENERAL SETTINGS
+========================= */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff512f, #dd2476, #ff6a00);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #000;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ========================
+   HEADER & NAVIGATION
+========================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+header h2, header h1 {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.1);
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.3);
+    color: #000;
+}
+
+.logout-btn {
+    background: #ff4d4d;
+}
+
+.logout-btn:hover {
+    background: #ff9999;
+    color: #000;
+}
+
+/* ========================
+   FLASH MESSAGES
+========================= */
+.flash-messages {
+    margin-bottom: 1rem;
+}
+
+.flash {
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.flash.success { background: rgba(0,255,0,0.2); color: #00ff00; }
+.flash.warning { background: rgba(255,255,0,0.2); color: #fff700; }
+.flash.danger  { background: rgba(255,0,0,0.2); color: #ff4d4d; }
+.flash.info    { background: rgba(0,0,255,0.2); color: #00ffff; }
+
+/* ========================
+   FORMS & TABS
+========================= */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    flex: 1;
+    min-width: 250px;
+}
+
+.tab form, .feedback-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea, button {
+    margin-bottom: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button, .btn {
+    background: linear-gradient(90deg, #ff9966, #ff5e62);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* ========================
+   DASHBOARD BUTTONS
+========================= */
+.dashboard-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+/* ========================
+   NEWS CHECKER
+========================= */
+.check-container textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+}
+
+.result-box {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: rgba(0,0,0,0.2);
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+.result-box .verdict {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.result-box .explanation {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* ========================
+   FEEDBACK CARDS & STARS
+========================= */
+.feedback-card {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(6px);
+}
+
+.star-rating, .stars-display {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    font-size: 1.5rem;
+    margin-top: 0.3rem;
+}
+
+.star.gold { color: gold; font-size: 22px; }
+.star.gray { color: #bbb; font-size: 22px; }
+
+.rating-stars {
+    display: flex;
+    gap: 5px;
+    font-size: 28px;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    cursor: pointer;
+    color: #ccc;
+}
+
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: gold;
+}
+
+/* ========================
+   FOOTER
+========================= */
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1rem;
+    color: #ffd9d9;
+    font-size: 0.9rem;
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* ========================
+   ANIMATIONS
+========================= */
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* ========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+.rating-stars {
+    display: flex;
+    gap: 5px;
+    flex-direction: row; /* ensure LTR */
+}
+
+.rating-stars label {
+    cursor: pointer;
+    color: #ccc;
+    font-size: 28px;
+}
+
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: gold;
+}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container login-container">
+    <div class="tabs">
+        <!-- Login Tab -->
+        <div class="tab">
+            <h2>Login</h2>
+            <form method="POST" action="{{ url_for('login') }}">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Signup Tab -->
+        <div class="tab">
+            <h2>Sign Up</h2>
+            <form method="POST" action="{{ url_for('signup') }}">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

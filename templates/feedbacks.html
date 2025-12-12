@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>All Feedbacks</h1>
+{% for fb in feedbacks %}
+<div class="feedback-card">
+    <p><strong>{{ fb.username }}</strong> says: {{ fb.text }}</p>
+    <div class="star-rating">
+        {% for i in range(fb.rating) %}
+            <span style="color: gold;">&#9733;</span>
+        {% endfor %}
+        {% for i in range(5 - fb.rating) %}
+            <span style="color: #ccc;">&#9733;</span>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

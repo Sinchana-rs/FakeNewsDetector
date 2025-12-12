@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>Fake News Checker</h1>
+        <nav>
+            <a href="{{ url_for('dashboard') }}" class="btn">Dashboard</a>
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endwith %}
+
+    <div class="check-container">
+        <form action="{{ url_for('check_news') }}" method="POST">
+            <textarea name="statement" placeholder="Enter the news statement..." required>{{ statement }}</textarea>
+            <button type="submit" class="btn">Check</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <p class="verdict">Verdict: <strong>{{ result.verdict }}</strong></p>
+            <p class="explanation">{{ result.explanation }}</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

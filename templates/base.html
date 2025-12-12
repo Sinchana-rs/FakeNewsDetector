@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fake News Checker</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>📰 Fake News Checker</h2>
+        {% if session.get('username') %}
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('check_news') }}">Check News</a>
+            <a href="{{ url_for('feedbacks_page') }}">View Feedbacks</a>
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+        </nav>
+        {% endif %}
+    </div>
+</header>
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, msg in messages %}
+                <div class="flash {{ category }}">{{ msg }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+&copy; 2025 Fake News Checker. All Rights Reserved.
+</footer>
+</body>
+</html>
